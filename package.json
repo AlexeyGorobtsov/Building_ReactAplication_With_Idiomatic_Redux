@@ -26,5 +26,9 @@
     "webpack": "^4.29.5",
     "webpack-cli": "^3.2.3",
     "webpack-dev-middleware": "^3.6.0"
+  },
+  "dependencies": {
+    "lodash": "^4.17.11",
+    "node-uuid": "^1.4.8"
   }
 }
