@@ -9,7 +9,7 @@ const Footer = () => (
             ALL
         </FilterLink>
         {', '}
-        <FilterLink filter=''>
+        <FilterLink filter='active'>
             Active
         </FilterLink>
         {', '}

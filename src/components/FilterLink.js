@@ -4,13 +4,14 @@ import PropTypes from 'prop-types';
 
 const FilterLink = ({filter, children}) => (
     <NavLink
-        to={(filter === 'all') ? '/' : filter}
+        exact
+        to={'/' + (filter === 'all' ? '' : filter)}
         activeStyle={{
             textDecoration: 'none',
             color: 'black'
         }}
     >
-        {children} {console.log(filter)}
+        {children}
     </NavLink>
 );
 
