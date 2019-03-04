@@ -2,8 +2,11 @@ import { combineReducers } from 'redux';
 
 import todo from './todo';
 
-const getAllTodos = (state) =>
-    state.allIds.map(id => state.byId[id]);
+const getAllTodos = (state) => {
+    console.log(state);
+    return state.allIds.map(id => state.byId[id]);
+};
+
 
 
 export const getVisibleTodos = (state, filter) => {
