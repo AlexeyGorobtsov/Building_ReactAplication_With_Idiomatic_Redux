@@ -3,7 +3,6 @@ import { combineReducers } from 'redux';
 import todo from './todo';
 
 const getAllTodos = (state) => {
-    console.log(state);
     return state.allIds.map(id => state.byId[id]);
 };
 
