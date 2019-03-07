@@ -20,4 +20,7 @@ const index = combineReducers({
     listByFilter
 });
 
+export const getIsFetching = (state, filter) =>
+    fromList.getIsFetching(state.listByFilter[filter]);
+
 export default index;
