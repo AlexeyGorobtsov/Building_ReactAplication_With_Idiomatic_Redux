@@ -1,13 +1,8 @@
 import { createStore, applyMiddleware } from 'redux';
 import { createLogger } from 'redux-logger';
+import thunk from 'redux-thunk';
 
 import todoApp from './redusers';
-
-const thunk = (store) => (next) => (action) => {
-    return typeof action === 'function' ?
-        action(store.dispatch, store.getState):
-        next(action);
-};
 
 const wrapDispatchWithMiddlewares = (store, middlewares) =>
     middlewares.slice().reverse().forEach(middleware =>
