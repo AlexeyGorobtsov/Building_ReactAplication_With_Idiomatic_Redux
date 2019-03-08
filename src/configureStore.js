@@ -3,10 +3,11 @@ import { createLogger } from 'redux-logger';
 
 import todoApp from './redusers';
 
-const thunk = (store) => (next) => (action) =>
-    typeof action === 'function' ?
-        action(store.dispatch):
+const thunk = (store) => (next) => (action) => {
+    return typeof action === 'function' ?
+        action(store.dispatch, store.getState):
         next(action);
+};
 
 const wrapDispatchWithMiddlewares = (store, middlewares) =>
     middlewares.slice().reverse().forEach(middleware =>
