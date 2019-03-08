@@ -1,8 +1,12 @@
 import { createStore, applyMiddleware } from 'redux';
-import promise from 'redux-promise';
 import { createLogger } from 'redux-logger';
 
 import todoApp from './redusers';
+
+const thunk = (store) => (next) => (action) =>
+    typeof action === 'function' ?
+        action(store.dispatch):
+        next(action);
 
 const wrapDispatchWithMiddlewares = (store, middlewares) =>
     middlewares.slice().reverse().forEach(middleware =>
@@ -10,7 +14,7 @@ const wrapDispatchWithMiddlewares = (store, middlewares) =>
     );
 
 const configureStore = () => {
-    const middlewares = [promise];
+    const middlewares = [thunk];
     if (process.env.NODE_ENV !== 'production') {
         middlewares.push(createLogger());
     }
